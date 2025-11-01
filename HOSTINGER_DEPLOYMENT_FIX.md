@@ -45,8 +45,8 @@ This error occurs because Hostinger cannot access your GitHub repository. Here a
 ├── 📄 robots.txt
 ├── 📄 sitemap.xml
 └── 📁 images/
-    ├── 🖼️ Logo #c6824b.png
-    └── 🖼️ Logo white #ffffff.png
+    ├── 🖼️ Logo-#c6824b.png
+    └── 🖼️ Logo white-#ffffff.png
 ```
 
 ## Post-Deployment Steps:
