@@ -1559,32 +1559,34 @@
         /* Powered by section styling */
         .powered-by {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            padding: 1.5rem 1rem;
             border-top: 1px solid rgba(198, 130, 75, 0.2);
+            background: rgba(198, 130, 75, 0.02);
+            border-radius: 8px;
         }
 
         .powered-by p {
-            color: #999;
+            color: #666;
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.4;
         }
 
         .powered-by a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-block;
             text-decoration: none;
             color: var(--primary-color);
             font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
         }
 
         .powered-by a:hover {
             background: rgba(198, 130, 75, 0.1);
-            transform: translateY(-2px);
+            color: var(--dark-color);
         }
 
         .powered-by img {
@@ -2432,12 +2434,10 @@
      <p style="text-align: center; margin-top: 1rem;">© 2025 Jes Love's Interior. All rights reserved. | Award-winning interior design services in Connecticut and beyond.</p>
      
      <!-- Powered by User Friendly Sites -->
-     <div class="powered-by" style="background: rgba(198,130,75,0.05); padding: 1rem; margin: 1rem 0;">
-       <p>Powered by</p>
-       <a href="https://userfriendlysites.com" target="_blank">
-         <!-- Logo temporarily removed due to filename issues -->
-         <!-- <img src="images/Logo #c6824b.png" alt="User Friendly Sites" style="height: 24px; width: auto; margin-right: 8px; vertical-align: middle; display: inline-block;" onload="console.log('Logo loaded successfully');" onerror="console.log('Logo load error. Trying fallback...'); this.src='images/Logo white #ffffff.png';"> -->
-         <span style="font-weight: 600; color: var(--primary-color);">User Friendly Sites</span>
+     <div class="powered-by">
+       <p style="margin: 0 0 0.5rem 0; font-size: 0.9rem; color: #666;">Powered by</p>
+       <a href="https://userfriendlysites.com" target="_blank" style="text-decoration: none; color: var(--primary-color); font-weight: 600; font-size: 1rem; display: inline-block; transition: color 0.3s ease;">
+         User Friendly Sites
        </a>
      </div>
     </div>
