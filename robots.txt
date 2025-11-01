@@ -1,0 +1,34 @@
+# Robots.txt for Jes Love's Interior Design Studio
+# Allows search engines to index all content
+
+User-agent: *
+Allow: /
+
+# Block access to sensitive areas
+Disallow: /contact-handler.php
+Disallow: /setup-database.php
+Disallow: /.htaccess
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /logs/
+
+# Allow access to stylesheets and scripts for proper rendering
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.ico$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.ttf$
+
+# Sitemap location (create this file)
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Crawl-delay to be respectful to servers
+Crawl-delay: 1
