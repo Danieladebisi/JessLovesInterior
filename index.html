@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/Logo #c6824b.png">
-  <link rel="shortcut icon" type="image/png" href="images/Logo #c6824b.png">
-  <link rel="apple-touch-icon" href="images/Logo #c6824b.png">
+  <!-- Favicon - commented out temporarily due to special characters in filename -->
+  <!-- <link rel="icon" type="image/png" href="images/Logo #c6824b.png"> -->
+  <!-- <link rel="shortcut icon" type="image/png" href="images/Logo #c6824b.png"> -->
+  <!-- <link rel="apple-touch-icon" href="images/Logo #c6824b.png"> -->
   
   <!-- SEO Meta Tags -->
   <title>Jes Love's Interior Design Studio | Luxury Home & Commercial Design | Groton CT</title>
@@ -93,7 +93,7 @@
   </script>
   
   <title>Jes Love's Interior Design Studio | Luxury Home & Commercial Design | Groton CT</title>
-  <script src="/_sdk/element_sdk.js"></script>
+  <!-- <script src="/_sdk/element_sdk.js"></script> -->
   <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -1849,14 +1849,38 @@
         }
     </style>
   <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  <!-- External scripts commented out to prevent loading issues -->
+  <!-- <script src="/_sdk/data_sdk.js" type="text/javascript"></script> -->
+  <!-- <script src="https://cdn.tailwindcss.com" type="text/javascript"></script> -->
  </head>
  <body>
   <!-- Loading Screen -->
   <div class="loading" id="loading">
     <div class="loader"></div>
   </div>
+
+  <!-- Fallback script to hide loading screen quickly -->
+  <script>
+    // Hide loading screen as soon as possible
+    (function() {
+      const hideLoading = function() {
+        const loading = document.getElementById('loading');
+        if (loading) {
+          loading.style.display = 'none';
+        }
+      };
+      
+      // Try to hide immediately
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', hideLoading);
+      } else {
+        hideLoading();
+      }
+      
+      // Fallback - force hide after 500ms
+      setTimeout(hideLoading, 500);
+    })();
+  </script>
 
   <!-- Floating Particles -->
   <div class="particles">
@@ -2411,7 +2435,8 @@
      <div class="powered-by" style="background: rgba(198,130,75,0.05); padding: 1rem; margin: 1rem 0;">
        <p>Powered by</p>
        <a href="https://userfriendlysites.com" target="_blank">
-         <img src="images/Logo #c6824b.png" alt="User Friendly Sites" style="height: 24px; width: auto; margin-right: 8px; vertical-align: middle; display: inline-block;" onload="console.log('Logo loaded successfully');" onerror="console.log('Logo load error. Trying fallback...'); this.src='images/Logo white #ffffff.png';">
+         <!-- Logo temporarily removed due to filename issues -->
+         <!-- <img src="images/Logo #c6824b.png" alt="User Friendly Sites" style="height: 24px; width: auto; margin-right: 8px; vertical-align: middle; display: inline-block;" onload="console.log('Logo loaded successfully');" onerror="console.log('Logo load error. Trying fallback...'); this.src='images/Logo white #ffffff.png';"> -->
          <span style="font-weight: 600; color: var(--primary-color);">User Friendly Sites</span>
        </a>
      </div>
@@ -2534,10 +2559,11 @@
 
         // Enhanced functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide loading screen
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
-            }, 1000);
+            // Hide loading screen immediately when DOM is ready
+            const loadingElement = document.getElementById('loading');
+            if (loadingElement) {
+                loadingElement.classList.add('hidden');
+            }
 
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2849,19 +2875,8 @@
                 });
             }
             
-            // Preload critical resources
-            const preloadLinks = [
-                'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap'
-            ];
-            
-            preloadLinks.forEach(href => {
-                const link = document.createElement('link');
-                link.rel = 'preload';
-                link.as = 'style';
-                link.href = href;
-                link.onload = function() { this.rel = 'stylesheet'; };
-                document.head.appendChild(link);
-            });
+            // Preload critical resources (removed font preloading to prevent duplicate loading)
+            // Fonts are already loaded via CSS @import
             
             // Reduce layout shift by setting aspect ratios
             images.forEach(img => {
@@ -2901,7 +2916,8 @@
             });
         });
 
-        // Google Analytics (replace with your tracking ID)
+        // Google Analytics (commented out - uncomment and replace GA_MEASUREMENT_ID when ready)
+        /*
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -2912,10 +2928,43 @@
                 'dimension1': 'page_type'
             }
         });
+        */
     </script>
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Page Load Completion Script -->
+    <script>
+        // Ensure page loading indicator stops
+        window.addEventListener('load', function() {
+            // Force completion of any pending operations
+            if (document.readyState === 'complete') {
+                console.log('Page fully loaded');
+                
+                // Dispatch a custom event to signal completion
+                window.dispatchEvent(new Event('pageFullyLoaded'));
+            }
+        });
+        
+        // Fallback to force completion
+        setTimeout(function() {
+            if (document.readyState !== 'complete') {
+                console.log('Forcing page completion');
+                
+                // Stop any pending resource requests that might be hanging
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    if (!img.complete) {
+                        img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB2aWV3Qm94PSIwIDAgMSAxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==';
+                    }
+                });
+                
+                // Force document ready state
+                window.stop(); // Stop any pending requests
+            }
+        }, 2000); // Reduced from 3000 to 2000ms
+    </script>
+    
+    <!-- Google Analytics (commented out - replace GA_MEASUREMENT_ID with actual ID when ready) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
     
     <!-- Schema.org JSON-LD for additional SEO -->
     <script type="application/ld+json">
@@ -2970,5 +3019,5 @@
         "acceptsReservations": true
     }
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9979c299806a4cd8',t:'MTc2MTk4Mjk5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
