@@ -3,9 +3,8 @@
 /.pnp
 .pnp.js
 
-# Production
+# Production builds (but keep public for Hostinger)
 /build
-/out
 /dist
 
 # Next.js
@@ -59,3 +58,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Keep public directory for Hostinger deployment
+!public/
+!public/**

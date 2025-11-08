@@ -14,20 +14,7 @@
   },
   "require-dev": {},
   "autoload": {},
-  "scripts": {
-    "post-install-cmd": [
-      "npm install",
-      "npm run build",
-      "mkdir -p public_html",
-      "cp -r out/* public_html/ 2>/dev/null || cp -r out/* public_html/"
-    ],
-    "post-update-cmd": [
-      "npm install",
-      "npm run build", 
-      "mkdir -p public_html",
-      "cp -r out/* public_html/ 2>/dev/null || cp -r out/* public_html/"
-    ]
-  },
+  "scripts": {},
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
