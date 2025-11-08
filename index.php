@@ -2,7 +2,7 @@
 // Jes Love's Interior - Static Website Server
 // Serves pre-built Next.js static files
 
-$publicDir = __DIR__ . '/public';
+$publicDir = __DIR__ . '/out';
 $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
 
 // Remove query string
