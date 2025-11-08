@@ -1,0 +1,170 @@
+/* CSS Fixes for Jes Love's Interior Website */
+
+/* Define primary color variables for consistency */
+:root {
+  --primary-color: #c6824b;
+  --primary-hover: #b06d3a;
+  --primary-light: #e4b482;
+  --cream-bg: #faf8f5;
+  --text-dark: #2c1810;
+  --text-light: #6b7280;
+}
+
+/* Ensure text visibility on all backgrounds */
+body {
+  color: var(--text-dark) !important;
+  background-color: var(--cream-bg) !important;
+}
+
+/* Fix primary color definitions */
+.text-primary-600,
+.hover\:text-primary-600:hover {
+  color: var(--primary-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.hover\:bg-primary:hover {
+  background-color: var(--primary-hover) !important;
+}
+
+/* Ensure text is visible on all backgrounds */
+.text-white {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+/* Fix navigation text visibility */
+header nav button,
+header nav a {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7) !important;
+}
+
+/* Ensure good contrast on hover states */
+.hover\:text-primary-600:hover {
+  color: var(--primary-color) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.25rem !important;
+}
+
+/* Fix any invisible text on same-color backgrounds */
+.text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.text-gray-700 {
+  color: #374151 !important;
+}
+
+.text-gray-900 {
+  color: #111827 !important;
+}
+
+/* Ensure buttons have proper contrast */
+button {
+  transition: all 0.2s ease !important;
+}
+
+button:hover {
+  transform: scale(1.02) !important;
+}
+
+/* Fix any gradient text that might be invisible */
+.bg-clip-text {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-image: linear-gradient(135deg, var(--primary-color), var(--primary-light)) !important;
+}
+
+/* Improve image loading placeholder */
+img {
+  background-color: #f3f4f6 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+img:not([src]),
+img[src=""] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23c6824b'/%3E%3Ctext x='200' y='150' text-anchor='middle' dy='0.3em' fill='white' font-family='Arial, sans-serif' font-size='18' font-weight='bold'%3EImage Loading...%3C/text%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+/* Improve loading states */
+.opacity-0 {
+  animation: fadeInUp 0.6s ease forwards !important;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fix any spacing issues */
+.container {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Ensure form elements are visible */
+input, textarea, select {
+  border: 2px solid #e5e7eb !important;
+  background-color: white !important;
+  color: var(--text-dark) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(198, 130, 75, 0.1) !important;
+}
+
+/* Fix any modal or overlay issues */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px) !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Ensure all links are visible */
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Mobile responsiveness fixes */
+@media (max-width: 768px) {
+  .text-lg { font-size: 1rem !important; }
+  .text-xl { font-size: 1.125rem !important; }
+  .text-2xl { font-size: 1.25rem !important; }
+  .text-3xl { font-size: 1.5rem !important; }
+  .text-4xl { font-size: 1.875rem !important; }
+  
+  .px-4 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+  .py-12 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+  .py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  
+  .gap-8 { gap: 1.5rem !important; }
+  .gap-6 { gap: 1rem !important; }
+}
+
+/* Print styles */
+@media print {
+  body { background: white !important; color: black !important; }
+  .bg-primary { background: #c6824b !important; }
+  .text-white { color: white !important; }
+}
