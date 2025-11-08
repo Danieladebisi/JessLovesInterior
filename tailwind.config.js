@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',
+      },
       colors: {
         primary: {
           50: '#fdf8f3',
@@ -31,6 +34,15 @@ module.exports = {
           700: '#b8b8b8',
           800: '#9e9e9e',
           900: '#858585',
+        },
+        // Enhanced brand colors for better accessibility
+        'brand': {
+          'primary': '#c6824b',
+          'secondary': '#f59e0b', 
+          'accent': '#d97706',
+          'light': '#fef3c7',
+          'dark': '#92400e',
+          'safe-bg': '#fefbf7'
         },
         cream: '#faf8f5',
         charcoal: '#3a3a3a',

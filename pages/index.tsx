@@ -1,9 +1,12 @@
 import { useState } from 'react'
-import Head from 'next/head'
+import SeoMeta from '@/components/SeoMeta'
+import StructuredData from '@/components/StructuredData'
+import { pagesSeoData } from '@/config/seoConfig'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
+import Gallery from '@/components/Gallery'
 import About from '@/components/About'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
@@ -14,14 +17,13 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Jes Love's Interior Design Studio | Luxury Home & Commercial Design</title>
-        <meta 
-          name="description" 
-          content="Transform your space with award-winning luxury interior design services in Groton, CT. 15+ years experience, 200+ completed projects."
-        />
-        <meta name="keywords" content="interior design, luxury interior design, home design, commercial design, residential design, space planning, renovation, decorating, Groton Connecticut, Connecticut interior designer" />
-      </Head>
+      <SeoMeta 
+        title={pagesSeoData.home.title}
+        description={pagesSeoData.home.description}
+        keywords={pagesSeoData.home.keywords}
+        url={pagesSeoData.home.url}
+      />
+      <StructuredData type="home" />
 
       <div className="min-h-screen bg-cream">
         <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
@@ -29,6 +31,7 @@ export default function Home() {
           <Hero />
           <Services />
           <Portfolio />
+          <Gallery />
           <About />
           <Testimonials />
           <Contact />

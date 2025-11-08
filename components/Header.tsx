@@ -51,7 +51,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
               onClick={() => scrollToSection('#hero')}
               className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
             >
-              <div className="w-12 h-12 relative overflow-hidden rounded-lg">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 relative overflow-hidden rounded-lg">
                 <Image
                   src="/images/logo.png"
                   alt="Jes Love's Interior"
@@ -59,8 +59,11 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
                   className="object-cover object-center scale-110"
                 />
               </div>
-              <span className="font-display text-xl font-semibold text-primary-600">
+              <span className="font-display text-lg sm:text-xl font-semibold text-primary-600 hidden xs:block">
                 Jes Love's Interior
+              </span>
+              <span className="font-display text-lg font-semibold text-primary-600 xs:hidden">
+                Jes Love's
               </span>
             </button>
           </div>
@@ -86,8 +89,8 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`p-2 rounded-md transition-colors ${
-                isScrolled ? 'text-gray-700' : 'text-white'
+              className={`p-2 rounded-md transition-colors active:scale-95 ${
+                isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
               }`}
             >
               {isMenuOpen ? (

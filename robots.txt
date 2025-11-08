@@ -12,6 +12,8 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /tmp/
 Disallow: /logs/
+Disallow: /backend/
+Disallow: /_next/webpack-hmr
 
 # Allow access to stylesheets and scripts for proper rendering
 Allow: /*.css$
@@ -27,8 +29,22 @@ Allow: /*.woff$
 Allow: /*.woff2$
 Allow: /*.ttf$
 
-# Sitemap location (create this file)
-Sitemap: https://yourdomain.com/sitemap.xml
+# Allow important directories
+Allow: /images/
+Allow: /_next/static/
+
+# Specific search engine directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot  
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap location
+Sitemap: https://jeslovesinterior.com/sitemap.xml
 
 # Crawl-delay to be respectful to servers
 Crawl-delay: 1
