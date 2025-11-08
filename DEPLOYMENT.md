@@ -1,0 +1,231 @@
+# Hostinger Next.js Deployment Instructions# Jes Love's Interior Design Website - Deployment Guide
+
+
+
+## Deployment Configuration## 📋 Pre-Deployment Checklist
+
+
+
+This repository is configured for automatic deployment to Hostinger with the following setup:### 1. Server Requirements
+
+- PHP 7.4 or higher
+
+### Build Process- MySQL 5.7 or higher
+
+1. `npm install` - Install dependencies- Apache/Nginx web server
+
+2. `npx next build` - Build Next.js static export- SSL certificate for HTTPS
+
+3. Copy files from `out/` to `public/` directory- mod_rewrite enabled (Apache)
+
+4. Deploy `public/` directory to web server
+
+### 2. Database Setup
+
+### File Structure1. Create a MySQL database named `interior_design_db`
+
+- `composer.json` - Deployment metadata for Hostinger2. Create a database user with full privileges
+
+- `deploy.sh` - Build script3. Run `setup-database.php` to create tables
+
+- `hostinger.config` - Deployment configuration4. Update database credentials in `contact-handler.php`
+
+- `public/` - Web server files (auto-generated)
+
+- `out/` - Next.js build output### 3. File Permissions
+
+```bash
+
+### Manual Deployment Steps for Hostingerchmod 644 index.html
+
+1. Configure deployment source: GitHub repositorychmod 644 .htaccess
+
+2. Set build command: `npm run build && cp -r out/* public/`chmod 755 contact-handler.php
+
+3. Set public directory: `public`chmod 755 setup-database.php
+
+4. Enable Node.js support (if available)chmod 755 images/
+
+chmod 644 images/*
+
+### Troubleshooting 403 Errors```
+
+- Ensure `index.html` exists in public directory
+
+- Check file permissions (644 for files, 755 for directories)  ### 4. Configuration Updates
+
+- Verify `.htaccess` configuration
+
+- Confirm public directory is set correctly in hosting settings#### Update Database Credentials
+Edit `contact-handler.php`:
+```php
+$host = 'your_server_host';
+$dbname = 'interior_design_db';
+$username = 'your_db_username';
+$password = 'your_secure_password';
+```
+
+#### Update Domain URLs
+Replace all instances of `https://yourdomain.com/` with your actual domain:
+- In `index.html` meta tags
+- In JSON-LD schema markup
+- In canonical URLs
+
+#### Google Analytics Setup
+1. Create Google Analytics account
+2. Get your tracking ID (GA_MEASUREMENT_ID)
+3. Replace `GA_MEASUREMENT_ID` in `index.html`
+
+## 🚀 Deployment Steps
+
+### Step 1: Upload Files
+Upload all files to your web server's document root:
+```
+/public_html/
+├── index.html
+├── contact-handler.php
+├── setup-database.php
+├── .htaccess
+└── images/
+    ├── Logo #c6824b.png
+    └── Logo white #ffffff.png
+```
+
+### Step 2: Database Setup
+1. Access `https://yourdomain.com/setup-database.php`
+2. Follow the setup instructions
+3. **Important**: Delete `setup-database.php` after setup
+4. Change default admin password immediately
+
+### Step 3: Test Functionality
+1. Visit your website
+2. Test contact form submission
+3. Test newsletter subscription
+4. Verify email notifications work
+5. Check all links and images load properly
+
+### Step 4: SSL & Security
+1. Install SSL certificate
+2. Enable HTTPS redirect in `.htaccess`
+3. Test security headers with online tools
+4. Run security scans
+
+### Step 5: Performance Testing
+1. Test with Google PageSpeed Insights
+2. Run GTmetrix analysis
+3. Test mobile responsiveness
+4. Verify lazy loading works
+
+## 🔧 SEO Configuration
+
+### Google Search Console
+1. Add property to Google Search Console
+2. Submit sitemap (create sitemap.xml)
+3. Monitor crawl errors
+4. Set up URL parameters
+
+### Meta Tags Verification
+Ensure all pages have:
+- ✅ Title tags (50-60 characters)
+- ✅ Meta descriptions (150-160 characters) 
+- ✅ Open Graph tags
+- ✅ Twitter Card tags
+- ✅ Canonical URLs
+
+### Local SEO
+1. Create Google My Business listing
+2. Add local schema markup
+3. Get listed in local directories
+4. Collect customer reviews
+
+## 📊 Analytics & Tracking
+
+### Google Analytics Events
+The following events are tracked:
+- Contact form submissions
+- Newsletter signups
+- Phone number clicks
+- Email link clicks
+
+### Conversion Goals
+Set up these goals in Google Analytics:
+1. Contact form completion
+2. Newsletter subscription
+3. Phone call tracking
+4. Consultation requests
+
+## 🛡️ Security Checklist
+
+- ✅ Strong database passwords
+- ✅ File permission restrictions
+- ✅ Security headers configured
+- ✅ SQL injection protection
+- ✅ XSS protection
+- ✅ CSRF protection in forms
+- ✅ Rate limiting for forms
+
+## 📱 Mobile Optimization
+
+- ✅ Responsive design
+- ✅ Mobile-friendly forms
+- ✅ Touch-friendly buttons
+- ✅ Fast loading on mobile
+- ✅ Optimized images
+
+## 🔍 Testing URLs
+
+After deployment, test these URLs:
+- `https://yourdomain.com/` (Homepage)
+- `https://yourdomain.com/#services` (Services section)
+- `https://yourdomain.com/#portfolio` (Portfolio section)
+- `https://yourdomain.com/#about` (About section)
+- `https://yourdomain.com/#contact` (Contact section)
+
+## 📈 Performance Targets
+
+Aim for these metrics:
+- Google PageSpeed Score: 90+
+- First Contentful Paint: <2s
+- Largest Contentful Paint: <2.5s
+- Cumulative Layout Shift: <0.1
+- Time to Interactive: <3s
+
+## 🔄 Maintenance Tasks
+
+### Weekly
+- Check contact form submissions
+- Review analytics data
+- Monitor website uptime
+
+### Monthly
+- Update content if needed
+- Check for broken links
+- Review security logs
+- Backup database
+
+### Quarterly
+- Update PHP/server software
+- Review and update SEO strategy
+- Analyze conversion rates
+- Update testimonials
+
+## 📞 Support Contacts
+
+- Web Development: Powered by User Friendly Sites
+- Domain/Hosting: [Your hosting provider]
+- Email Support: [Your email]
+- Emergency Contact: 267-230-7372
+
+## 🎯 Success Metrics
+
+Track these KPIs:
+- Organic search traffic growth
+- Contact form conversion rate
+- Newsletter signup rate
+- Page load speed
+- Mobile usability score
+- Local search rankings
+
+---
+
+**Important**: After deployment, monitor the website for the first 48 hours to ensure everything works correctly. Keep backups of all files and database before making any changes.

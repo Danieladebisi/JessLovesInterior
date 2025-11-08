@@ -1,0 +1,30 @@
+{
+  "name": "jesslovesinterior",
+  "version": "1.0.0",
+  "description": "Jes Love's Interior Design Studio - Professional interior design services in Groton, CT",
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "start": "next start",
+    "dev": "next dev",
+    "deploy": "next build && next export"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "homepage": "https://jeslovesinterior.com",
+  "author": "Jes Love's Interior",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Danieladebisi/JessLovesInterior.git"
+  },
+  "keywords": [
+    "interior-design",
+    "home-decoration",
+    "luxury-interiors",
+    "groton-ct",
+    "residential-design",
+    "commercial-design"
+  ]
+}
